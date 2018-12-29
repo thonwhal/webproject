@@ -1,0 +1,143 @@
+<html>
+<head>
+<style>
+<!-- This css just for this page.. -->
+input[type=number], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type=button] {
+  width: 26%;
+  background-color: #1a53ff;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type=button]:hover {
+  background-color: #00134d;
+}
+
+div {
+   margin: auto;
+  padding: 15px;
+  border-radius: 100px;
+  background-color: #f2f2f2;
+  width: 400px;
+  height: 470px;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Meal Plans</title>
+</head>
+<body>
+
+
+<a href="project.html"><img src="logo.png" alt="logo"  class="center"></a>
+<hr>
+<ul class="top-level-menu">
+    <li><a href="#">Healthy Recipes</a>
+		<ul class="second-level-menu">
+			<li><a href="breakfast.html">Breakfast Recipes</a></li>
+			<li><a href="lunch.html">Lunch Recipes</a></li>
+			<li><a href="dinner.html">Dinner Recipes</a></li>
+			<li><a href="appet.html">Appetizer Recipes</a></li>
+			<li><a href="dessert.html">Dessert Recipes</a></li>
+			
+			</ul>
+			</li>
+<li><a href="wloss.html">Weight Loss</a></li>
+    <li>
+        <a href="mplans.html">Meal Plans</a>
+        
+    </li>
+    <li><a href="aboutus.html">About Us</a></li>
+</ul>
+</br>
+</br>
+<hr>
+<h2 class="title-text" align="center">How Many Calories Should You Eat Per Day to Lose Weight<h2>
+<p class="text" align="center">This is a simple but highly accurate scientific calorie calculator, along with 5 evidence-based tips on how to sustainably reduce calorie intake. Enter your details in the calculator below to figure out how many calories you should be eating per day to either maintain or lose weight. 
+ </p>
+ <div align="center">
+<form action="#">
+  Gender:<br> 
+  <select name="gender" id="gender">
+	<option value="male">Male</option>
+	<option value="fem">Female</option>
+  </select></br>
+  <!-- <input type="radio" id="gender" name="gender" value="male" checked> Male<br> -->
+  <!-- <input type="radio" id="gender" name="gender" value="fem"> Female<br> -->
+  Age:<br>
+  <input type="number" id="age" placeholder="Years.."><br>
+  Height:<br>
+  <input type="number" id="height1" placeholder="Feet..">
+  <input type="number" id="height2" placeholder="Inches.."><br>
+  Weight:<br>
+  <input type="number" id="weigth" placeholder="Pounds.."><br>
+  Activity:<br> 
+  <select name="activity" id="act">
+	<option value="1.2">Sedentary</option>
+	<option value="1.375">Lightly Active</option>
+	<option value="1.55">Moderately Active</option>
+	<option value="1.725">Very Active</option>
+	<option value="1.9">Extremely Active</option>
+  </select></br>
+</form>
+
+<button type="button"
+onclick="">
+Calculate</button>
+
+<p id="lblResult">Your BMR score: </p>
+<p id="lblResult2">Your Result: </p>
+</div>  
+  <script>
+var bmr;
+var result;
+
+    
+function calc() {
+  var age = document.getElementById("age").value;
+  var gender = document.getElementById("gender").value;
+  var height1 = document.getElementById("height1").value;
+  var height2 = document.getElementById("height2").value;
+  var weigth = document.getElementById("weigth").value;
+  var act = document.getElementById("act").value;
+  var height = ( 12 * height1 ) + height2;
+  if (gender == "male") {
+  bmr = 66 + ( 6.23 * weigth ) + ( 12.7 * height ) - ( 6.8 * age );
+  result = act * bmr ;
+  }
+  else {
+  bmr = 655 + ( 4.35 * weigth ) + ( 4.7 * height ) - ( 4.7 * age );
+  result = act * bmr ;
+  } 
+  
+}
+
+    
+
+document.getElementsByTagName("button")[0].addEventListener("click", function() {
+  calc();
+  document.getElementById('lblResult').innerHTML = "Your BMR score: " + bmr;
+  document.getElementById('lblResult2').innerHTML = "Your Result:" + result;
+
+})
+
+ 
+    
+
+ </script>
+<img src="diet1.jpg" alt="diet1"  class="center2" >
+</body>
+</html>
